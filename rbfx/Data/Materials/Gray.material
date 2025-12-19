@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<material>
+	<technique name="Techniques/NoiseMixOpaque.xml" quality="0" loddistance="0.000000" />
+	<texture slot="Albedo" name="Textures/AlbedoNoise.jpg" />
+	<texture slot="Normal" name="Textures/TrimSheet.png" />
+	<texture slot="VolumeNoise" name="Textures/3DNoise.xml" />
+	<shader vsdefines="PBR " psdefines="PBR " />
+	<parameter name="VOffset" value="0 1 0 0" />
+	<parameter name="NoiseScale" value="24.450001" />
+	<parameter name="AlphaCutoff" value="0.500000" />
+	<parameter name="UOffset" value="1 0 0 0" />
+	<parameter name="MatSpecColor" value="0 0 0 1" />
+	<parameter name="NormalScale" value="1.000000" />
+	<parameter name="DielectricReflectance" value="0.500000" />
+	<parameter name="MatEnvMapColor" value="1 1 1" />
+	<parameter name="MatEmissiveColor" value="0 0 0" />
+	<parameter name="MatDiffColor" value="0.864979 0.864979 0.864979 1" />
+	<parameter name="Roughness" value="1.000000" />
+	<parameter name="MatDiffColor2" value="0.687764 0.687764 0.687764 1" />
+	<parameter name="Metallic" value="1.000000" />
+	<cull value="ccw" />
+	<shadowcull value="ccw" />
+	<fill value="solid" />
+	<depthbias constant="0.000000" slopescaled="0.000000" normaloffset="0.000000" />
+	<alphatocoverage enable="false" />
+	<lineantialias enable="false" />
+	<renderorder value="128" />
+	<occlusion enable="true" />
+</material>

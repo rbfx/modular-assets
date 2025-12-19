@@ -1,0 +1,5 @@
+<texture3d>
+    <filter mode="bilinear" />
+    <volume name="3DNoise.dds" />
+    <mipmap enable="false" />
+</texture3d>
