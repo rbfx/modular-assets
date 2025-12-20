@@ -268,27 +268,7 @@
 				{
 					"name": "Name",
 					"type": "String",
-					"value": "BrickFloor01"
-				}
-			],
-			"components": [
-				{
-					"_typeName": "CollisionShape",
-					"attributes": [
-						{
-							"name": "Size",
-							"type": "Vector3",
-							"value": "5 0.4 5"
-						},
-						{
-							"name": "Offset Position",
-							"type": "Vector3",
-							"value": "0 -0.2 0"
-						}
-					]
-				},
-				{
-					"_typeName": "RigidBody"
+					"value": "BrickWallArch01"
 				}
 			],
 			"nodes": [
@@ -297,12 +277,17 @@
 						{
 							"name": "Name",
 							"type": "String",
-							"value": "BrickFloor01"
+							"value": "BrickWall01"
 						},
 						{
 							"name": "Position",
 							"type": "Vector3",
-							"value": "-1.875 -0.2 1.875"
+							"value": "2.5 0.285714 0"
+						},
+						{
+							"name": "Rotation",
+							"type": "Quaternion",
+							"value": "0.707107 0.707107 0 0"
 						}
 					],
 					"components": [
@@ -312,7 +297,7 @@
 								{
 									"name": "Model",
 									"type": "ResourceRef",
-									"value": "Model;Models/Env/BrickFloor01.mdl"
+									"value": "Model;Models/Env/BrickWallArch01.mdl"
 								},
 								{
 									"name": "Material",
@@ -325,6 +310,24 @@
 									"value": true
 								}
 							]
+						},
+						{
+							"_typeName": "CollisionShape",
+							"attributes": [
+								{
+									"name": "Shape Type",
+									"type": "String",
+									"value": "TriangleMesh"
+								},
+								{
+									"name": "Model",
+									"type": "ResourceRef",
+									"value": "Model;Models/Env/BrickWallArch01.mdl"
+								}
+							]
+						},
+						{
+							"_typeName": "RigidBody"
 						}
 					]
 				}

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <resource _id="1">
 	<attributes>
-		<attribute name="Next Node ID" type="Int" value="51" />
-		<attribute name="Next Component ID" type="Int" value="140" />
+		<attribute name="Next Node ID" type="Int" value="72" />
+		<attribute name="Next Component ID" type="Int" value="204" />
 	</attributes>
 	<components>
 		<component _id="1" _typeName="Octree" />
@@ -131,7 +131,7 @@
 			<components>
 				<component _id="30" _typeName="PrefabReference">
 					<attributes>
-						<attribute name="Prefab" type="ResourceRef" value="PrefabResource;Prefabs/Env/BrickWall01.prefab" />
+						<attribute name="Prefab" type="ResourceRef" value="PrefabResource;Prefabs/Env/BrickWallArch01.prefab" />
 					</attributes>
 				</component>
 			</components>
@@ -275,6 +275,19 @@
 				<component _id="139" _typeName="PrefabReference">
 					<attributes>
 						<attribute name="Prefab" type="ResourceRef" value="PrefabResource;Prefabs/Env/BrickWall01.prefab" />
+					</attributes>
+				</component>
+			</components>
+		</node>
+		<node _id="71">
+			<attributes>
+				<attribute name="Name" type="String" value="BrickFloor01" />
+				<attribute name="Position" type="Vector3" value="5 0 5" />
+			</attributes>
+			<components>
+				<component _id="203" _typeName="PrefabReference">
+					<attributes>
+						<attribute name="Prefab" type="ResourceRef" value="PrefabResource;Prefabs/Env/BrickFloor01.prefab" />
 					</attributes>
 				</component>
 			</components>
