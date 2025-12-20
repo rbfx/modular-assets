@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "meshtopologytoolkit.trimgenerator": {
+      "version": "0.0.73",
+      "commands": [
+        "trimgen"
+      ],
+      "rollForward": false
+    }
+  }
+}
