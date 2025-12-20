@@ -1,5 +1,7 @@
 # Modular Assets for Rebel Fork
 
+![Prewvoew](docs/img/preview.jpg)
+
 ## Ultimate Trim
 
 The core concept of the content in the repository is described by the "The Ultimate Trim: Texturing Techniques of Sunset Overdrive" talk by Morten Olsen from Insomniac Games:
