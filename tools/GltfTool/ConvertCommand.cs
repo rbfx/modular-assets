@@ -1,6 +1,7 @@
 ﻿using Cocona;
 using MeshTopologyToolkit;
 using MeshTopologyToolkit.Gltf;
+using MeshTopologyToolkit.Operators;
 using MeshTopologyToolkit.Urho3D;
 using System.Globalization;
 using System.Numerics;
@@ -14,6 +15,8 @@ namespace GltfTool
             [Option('i', Description = "Input GLTF file name")] string input,
             [Option('r', Description = "Rotate mesh according to Euler angles defined in degrees \"x,y,z\".")] string? rotate = null,
             [Option('a', Description = "Align output mesh in Vector3 format \"x,y,z\". Use 0.5,0.5,0.5 to move pivot point to mesh center.")] string? align = null,
+            [Option('n', Description = "Recalculate normals.")] bool forceNormals = false,
+            [Option('t', Description = "Recalculate tangents.")] bool forceTangents = false,
             [Option('o', Description = "Output MDL file name. By default it takes input file name and replace extension with mdl.")] string? output = null
         )
         {
@@ -22,30 +25,39 @@ namespace GltfTool
                 output = Path.Combine(Path.GetDirectoryName(input) ?? "", Path.GetFileNameWithoutExtension(input) + ".mdl");
             }
 
-            var fileFormat = new FileFormatCollection(
-                new FormatAndSpace(new GltfFileFormat(), SpaceTransform.Identity),
-                new FormatAndSpace(new Urho3DFileFormat(), SpaceTransform.Identity)
+            var fileFormat = new FileFormatCollection(true,
+                new GltfFileFormat(),
+                new Urho3DFileFormat()
                 );
 
-            if (!fileFormat.TryRead(new FileSystemEntry(input), out var model))
+            if (!fileFormat.TryRead(new FileSystemEntry(input), out var content))
             {
                 throw new Exception($"Failed to read file {input}");
             }
+
+            content = new MergeOperator().Transform(content);
+
+            content = new EnsureNormalsOperator(overrideExisting: forceNormals).Transform(content);
+            content = new EnsureTangentsOperator(overrideExisting: forceTangents).Transform(content);
+
+            var mesh = content.Meshes[0];
 
             if (rotate != null)
             {
                 var radians = ParseVec3(rotate) * (MathF.PI / 180.0f);
                 var rotation = Quaternion.CreateFromYawPitchRoll(radians.Y, radians.X, radians.Z);
-                //model.AlignPivot(alignVec.Value);
+                mesh = new SpaceTransformOperator(new SpaceTransform(Matrix4x4.CreateFromQuaternion(rotation))).Transform(mesh);
             }
 
             if (align != null)
             {
                 var alignVec = ParseVec3(align);
-                //model.AlignPivot(alignVec.Value);
+                mesh = new AlignOperator(alignVec).Transform(mesh);
             }
 
-            if (!fileFormat.TryWrite(new FileSystemEntry(output), model))
+            var result = new FileContainer();
+            result.AddSingleMeshScene(mesh);
+            if (!fileFormat.TryWrite(new FileSystemEntry(output), result))
             {
                 throw new Exception($"Failed to write file {output}");
             }

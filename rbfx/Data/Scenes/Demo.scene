@@ -98,7 +98,8 @@
 		<node _id="4">
 			<attributes>
 				<attribute name="Name" type="String" value="Light" />
-				<attribute name="Rotation" type="Quaternion" value="0.862315 0.478951 -0.143694 0.079811" />
+				<attribute name="Position" type="Vector3" value="6.163401 4.045351 0" />
+				<attribute name="Rotation" type="Quaternion" value="-0.611236 -0.045146 0.365312 -0.700642" />
 			</attributes>
 			<components>
 				<component _id="9" _typeName="Light">

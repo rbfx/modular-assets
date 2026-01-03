@@ -18,13 +18,23 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>utilities;dotnet;library</PackageTags>
 
-		<MeshTopologyToolkitVersion>0.0.74</MeshTopologyToolkitVersion>
+		<MeshTopologyToolkitVersion>0.0.80</MeshTopologyToolkitVersion>
 	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="Cocona.Lite" Version="2.2.0" />
+
+	<ItemGroup Condition="'$(MeshTopologyToolkitPath)' != ''">
+		<ProjectReference Include="$(MeshTopologyToolkitPath)\src\MeshTopologyToolkit\MeshTopologyToolkit.csproj" />
+		<ProjectReference Include="$(MeshTopologyToolkitPath)\src\MeshTopologyToolkit.Gltf\MeshTopologyToolkit.Gltf.csproj" />
+		<ProjectReference Include="$(MeshTopologyToolkitPath)\src\MeshTopologyToolkit.Urho3D\MeshTopologyToolkit.Urho3D.csproj" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(MeshTopologyToolkitPath)' == ''">
 		<PackageReference Include="MeshTopologyToolkit" Version="$(MeshTopologyToolkitVersion)" />
 		<PackageReference Include="MeshTopologyToolkit.Gltf" Version="$(MeshTopologyToolkitVersion)" />
 		<PackageReference Include="MeshTopologyToolkit.Urho3D" Version="$(MeshTopologyToolkitVersion)" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Cocona.Lite" Version="2.2.0" />
 	</ItemGroup>
 
 </Project>

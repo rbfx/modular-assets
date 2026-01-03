@@ -289,47 +289,24 @@
 				},
 				{
 					"_typeName": "RigidBody"
-				}
-			],
-			"nodes": [
+				},
 				{
+					"_typeName": "StaticModel",
 					"attributes": [
 						{
-							"name": "Name",
-							"type": "String",
-							"value": "BrickWall01"
+							"name": "Model",
+							"type": "ResourceRef",
+							"value": "Model;Models/Env/BrickWall01.mdl"
 						},
 						{
-							"name": "Position",
-							"type": "Vector3",
-							"value": "2.5 0.285714 0"
+							"name": "Material",
+							"type": "ResourceRefList",
+							"value": "Material;Materials/Gray.material"
 						},
 						{
-							"name": "Rotation",
-							"type": "Quaternion",
-							"value": "0.707107 0.707107 0 0"
-						}
-					],
-					"components": [
-						{
-							"_typeName": "StaticModel",
-							"attributes": [
-								{
-									"name": "Model",
-									"type": "ResourceRef",
-									"value": "Model;Models/Env/BrickWall01.mdl"
-								},
-								{
-									"name": "Material",
-									"type": "ResourceRefList",
-									"value": "Material;Materials/Gray.material"
-								},
-								{
-									"name": "Cast Shadows",
-									"type": "Bool",
-									"value": true
-								}
-							]
+							"name": "Cast Shadows",
+							"type": "Bool",
+							"value": true
 						}
 					]
 				}

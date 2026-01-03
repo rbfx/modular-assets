@@ -289,42 +289,24 @@
 				},
 				{
 					"_typeName": "RigidBody"
-				}
-			],
-			"nodes": [
+				},
 				{
+					"_typeName": "StaticModel",
 					"attributes": [
 						{
-							"name": "Name",
-							"type": "String",
-							"value": "BrickFloor01"
+							"name": "Model",
+							"type": "ResourceRef",
+							"value": "Model;Models/Env/BrickFloor01.mdl"
 						},
 						{
-							"name": "Position",
-							"type": "Vector3",
-							"value": "-1.875 -0.2 1.875"
-						}
-					],
-					"components": [
+							"name": "Material",
+							"type": "ResourceRefList",
+							"value": "Material;Materials/Gray.material"
+						},
 						{
-							"_typeName": "StaticModel",
-							"attributes": [
-								{
-									"name": "Model",
-									"type": "ResourceRef",
-									"value": "Model;Models/Env/BrickFloor01.mdl"
-								},
-								{
-									"name": "Material",
-									"type": "ResourceRefList",
-									"value": "Material;Materials/Gray.material"
-								},
-								{
-									"name": "Cast Shadows",
-									"type": "Bool",
-									"value": true
-								}
-							]
+							"name": "Cast Shadows",
+							"type": "Bool",
+							"value": true
 						}
 					]
 				}
@@ -392,6 +374,27 @@
 							"name": "Zone Texture",
 							"type": "ResourceRef",
 							"value": "TextureCube;Textures/DefaultSkybox.xml"
+						}
+					]
+				}
+			]
+		},
+		{
+			"attributes": [
+				{
+					"name": "Rotation",
+					"type": "Quaternion",
+					"value": "0.873005 0.404365 0.114602 0.247421"
+				}
+			],
+			"components": [
+				{
+					"_typeName": "Light",
+					"attributes": [
+						{
+							"name": "Light Type",
+							"type": "String",
+							"value": "Directional"
 						}
 					]
 				}
