@@ -19,7 +19,9 @@ UNIFORM_BUFFER_END(4, Material)
 
 VERTEX_OUTPUT_HIGHP(vec3 vWorldPos)
 
+#ifndef NONOISE
 SAMPLER(11, sampler3D sVolumeNoise)
+#endif
 
 #include "_Material.glsl"
 
@@ -49,9 +51,13 @@ void main()
     Surface_SetPlanarReflection(surfaceData, sReflection0, cReflectionPlaneX, cReflectionPlaneY);
     Surface_SetBackground(surfaceData, sEmission, sDepthBuffer);
 
-    half3 colorNoise = texture(sVolumeNoise, vWorldPos).rgb;
     half4 albedoInput = texture(sAlbedo, vTexCoord);
+#ifdef NONOISE
+    half mixFactor = (albedoInput.r + 0.5) * 0.5;
+#else
+    half3 colorNoise = texture(sVolumeNoise, vWorldPos).rgb;
     half mixFactor = (albedoInput.r + colorNoise.r) * 0.5;
+#endif
 
     half4 matDiffColor = mix(cMatDiffColor, cMatDiffColor2, mixFactor);
 
