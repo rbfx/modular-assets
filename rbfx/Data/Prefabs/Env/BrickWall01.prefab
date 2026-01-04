@@ -309,6 +309,26 @@
 							"value": true
 						}
 					]
+				},
+				{
+					"_typeName": "StaticModel",
+					"attributes": [
+						{
+							"name": "Model",
+							"type": "ResourceRef",
+							"value": "Model;Models/Env/WallOccluder.mdl"
+						},
+						{
+							"name": "Material",
+							"type": "ResourceRefList",
+							"value": "Material;Materials/Occluder.material"
+						},
+						{
+							"name": "Is Occluder",
+							"type": "Bool",
+							"value": true
+						}
+					]
 				}
 			]
 		},

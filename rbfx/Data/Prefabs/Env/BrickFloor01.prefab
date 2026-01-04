@@ -309,6 +309,31 @@
 							"value": true
 						}
 					]
+				},
+				{
+					"_typeName": "StaticModel",
+					"attributes": [
+						{
+							"name": "Model",
+							"type": "ResourceRef",
+							"value": "Model;Models/Env/FloorOccluder.mdl"
+						},
+						{
+							"name": "Material",
+							"type": "ResourceRefList",
+							"value": "Material;Materials/Occluder.material"
+						},
+						{
+							"name": "Is Occluder",
+							"type": "Bool",
+							"value": true
+						},
+						{
+							"name": "Can Be Occluded",
+							"type": "Bool",
+							"value": false
+						}
+					]
 				}
 			]
 		},
